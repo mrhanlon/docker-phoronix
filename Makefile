@@ -2,15 +2,15 @@ bench_build:
 	@docker build -t docker-phoronix -f Dockerfile .
 
 bench_run:
-	@docker run -i --name docker-phoronix docker-phoronix 
+	@docker run -i --name docker-phoronix docker-phoronix
 
 bench_cleanup_image:
 	@echo "Removing old image..."
-	@docker images -q --filter "dangling=true" | xargs -r docker rmi
+	@docker images -q --filter "dangling=true" | xargs docker rmi
 
 bench_cleanup_container:
 	@echo "Removing container..."
-	@docker stop docker-bench | xargs -r docker rm 
+	@docker stop docker-phoronix | xargs docker rm
 
 bench_deploy: bench_build bench_cleanup_image
 
