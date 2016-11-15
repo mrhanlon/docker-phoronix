@@ -19,6 +19,8 @@ RUN tar xzf phoronix-test-suite-6.2.2.tar.gz
 RUN rm -f phoronix-test-suite-6.2.2.tar.gz
 RUN cd phoronix-test-suite && ./install-sh
 
+COPY etc/phoronix-test-suite.xml /etc/phoronix-test-suite.xml
+
 # Install predefined tests
 ## Disk
 RUN phoronix-test-suite install pts/iozone
